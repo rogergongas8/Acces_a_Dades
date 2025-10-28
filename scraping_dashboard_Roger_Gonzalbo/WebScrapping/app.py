@@ -13,12 +13,12 @@ except FileNotFoundError:
 
 st.sidebar.header("Filtros")
 
-# Aseguramos que los nombres de columnas sean correctos
+# Verificación de columnas
 if "precio" not in df.columns or "rating" not in df.columns:
     st.error("El CSV no contiene las columnas esperadas ('precio', 'rating').")
     st.stop()
 
-# Slider de rango de precio
+# Slider para rango de precio
 precio_min = float(df["precio"].min())
 precio_max = float(df["precio"].max())
 
@@ -46,9 +46,23 @@ df_filtrado = df[
 st.write(f"Se muestran {len(df_filtrado)} libros de {len(df)} totales.")
 st.dataframe(df_filtrado)
 
-# Estadísticas básicas
-st.subheader("Estadísticas")
-st.write(df_filtrado.describe())
+# Cálculo de promedios
+precio_promedio = df_filtrado["precio"].mean()
+rating_promedio = df_filtrado["rating"].mean()
+
+# Fila de promedios más visual
+st.subheader("📊 Promedios generales")
+col1, col2 = st.columns(2)
+
+col1.metric(
+    label="💷 Precio promedio",
+    value=f"£{precio_promedio:.2f}"
+)
+
+col2.metric(
+    label="⭐ Rating promedio",
+    value=f"{rating_promedio:.2f} / 5"
+)
 
 # Gráfico simple
 st.subheader("Distribución de precios")
