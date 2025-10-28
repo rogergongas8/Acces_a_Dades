@@ -51,19 +51,20 @@ precio_promedio = df_filtrado["precio"].mean()
 rating_promedio = df_filtrado["rating"].mean()
 
 # Fila de promedios más visual
-st.subheader("📊 Promedios generales")
+st.subheader(" Promedios generales")
 col1, col2 = st.columns(2)
 
 col1.metric(
-    label="💷 Precio promedio",
+    label=" Precio promedio",
     value=f"£{precio_promedio:.2f}"
 )
 
 col2.metric(
-    label="⭐ Rating promedio",
+    label=" Rating promedio",
     value=f"{rating_promedio:.2f} / 5"
 )
 
 # Gráfico simple
 st.subheader("Distribución de precios")
 st.bar_chart(df_filtrado["precio"])
+
