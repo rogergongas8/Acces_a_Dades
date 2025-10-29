@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 # --- Configuración inicial ---
-URL_CATALOGO = "https://books.toscrape.com"
+URL_CATALOGO = "https://books.toscrape.com/catalogue/"
 datos_libros = []
 
 mapa_rating = {
@@ -14,7 +14,7 @@ mapa_rating = {
     "Five": 5,
 }
 
-print("Iniciando scraping (método 'for' para 50 páginas)...")
+print("Iniciando scraping")
 
 for i in range(1, 10):
 
