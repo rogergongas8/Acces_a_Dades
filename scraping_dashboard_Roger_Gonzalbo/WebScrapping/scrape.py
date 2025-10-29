@@ -16,7 +16,6 @@ mapa_rating = {
 
 print("Iniciando scraping (método 'for' para 50 páginas)...")
 
-# --- Bucle 'for' de 1 a 50 ---
 for i in range(1, 10):
 
     # Construimos la URL a mano para cada página
@@ -25,10 +24,10 @@ for i in range(1, 10):
     print(f"Descargando: {url_pagina}")
     page = requests.get(url_pagina)
 
-    # Si una página falla (ej. 404), simplemente la saltamos
+    # Si una página falla la saltamos
     if page.status_code != 200:
         print(f"Error en página {i}. Saltando...")
-        continue  # Pasa a la siguiente iteración del bucle (i+1)
+        continue
 
     soup = BeautifulSoup(page.content, 'html.parser')
     libros = soup.find_all('article', class_='product_pod')
