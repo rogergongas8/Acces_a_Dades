@@ -4,8 +4,6 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
-# --- Configuración Inicial ---
-
 # 1. Cargar la clave API desde el archivo .env
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
